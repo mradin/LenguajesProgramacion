@@ -1,0 +1,6 @@
+                         test = (\x -> x)
+
+ejercicio1 x lista =
+	if (length [y | y <- lista, x `mod` y == 0 ]) == (length lista)
+	then x 
+	else ejercicio1 (x+1) lista

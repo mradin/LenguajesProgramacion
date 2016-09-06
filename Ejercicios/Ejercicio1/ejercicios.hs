@@ -7,11 +7,11 @@ maximum list = max (tail list) (head list)
 					 | (head list) > current = max (tail list)(head list)
 					 | otherwise = max(tail list) current
 					 
-bigger (a,b) = if  a > b 
+bigger a b = if  a > b 
 			   then a 
 			   else b
 
-smaller (a,b) = if  a < b 
+smaller a b = if  a < b 
 				then a 
 				else b
 maximo [] = -1
@@ -24,8 +24,6 @@ minimo [] = -1
 minimo (a:[]) = a
 minimo (a:b:c) = if c == []
 				 then smaller(a,b)
-				 else maximo([minimo(a,b)]++c)
-				 			   
-maxmin [] = -1
-maxmin (a:[]) = ()
-maxmin lista = (minimo lista maximo lista)
+				 else minimo([smaller(a,b)]++c)
+
+maxmin lista = (minimo lista, maximo lista)

@@ -1,0 +1,2 @@
+fact 0 = 0
+fact x sol= fact(x-1,x*sol)
